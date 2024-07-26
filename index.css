@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+
+html {
+  font-size: 1rem;
+  --color-text-main: #1A1A1A;
+  --color-text-secondary: #0062E0;
+  --color-text-white: #FFFFFF;
+  --text-size-4: 0.25rem;
+}
+
+body {
+  min-height: 100dvh;
+  display: grid;
+  color: var(--color-text-main);
+}
+
+
+.main-container {
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.content-wrapper {
+  display: grid;
+  max-height: 579px;
+  height: 100%;
+  max-width: 1153px;
+  width: 100%;
+  grid-template-columns: 608px 492px;
+  column-gap: calc(var(--text-size-4) * 10);
+}
+
+.left-part {
+  display: grid;
+  align-items: center ;
+  background-color: #F2F4FF;
+  border-radius: 6px;
+  /* padding: 0 52px; */
+  max-width: 608px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.right-part {
+  display: grid;
+  align-content: start;
+}
+
+.sub-title {
+  color: var(--color-text-secondary);
+  font-family: League Spartan;
+  font-size: calc(var(--text-size-4) * 5);
+font-weight: 600;
+line-height: 1;
+text-align: left;
+margin-bottom: 12px;
+
+}
+
+.title {
+  font-family: League Spartan;
+font-size:  calc(var(--text-size-4) * 10);
+font-weight: 700;
+line-height: 1;
+
+}
+
+.step-number {
+  width: calc(var(--text-size-4) * 10);
+  height: calc(var(--text-size-4) * 10);
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-family: League Spartan;
+font-size:  calc(var(--text-size-4) * 5);
+font-weight: 600;
+line-height: 1;
+color: var(--color-text-main);
+grid-row: 2 span;
+border: 1px solid var(--color-text-main);
+transition-property: color;
+transition-duration: 250ms;
+transition-timing-function: ease-in-out;
+position: relative;
+overflow: hidden;
+}
+
+.step-number span {
+  position: relative;
+  z-index: 1;
+}
+
+.step-number::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  background: linear-gradient(#0094FF, #0062E0);
+  transition-property: opacity;
+transition-duration: 250ms;
+transition-timing-function: ease-in-out;
+}
+
+.steps-switch-wrapper {
+  display: grid;
+  margin-top: 32px;
+  align-content: space-between;
+}
+
+
+.step-swtich-button {
+  --border-size: 3px;
+  border-radius: 6px;
+  display: grid;
+  align-items: center;
+  column-gap: 30px;
+  grid-template-columns: auto 1fr;
+  grid-template-rows: repeat(2, auto);
+  background: var(--color-text-white);
+  padding: 18px 11px 14px 17px;
+  cursor: pointer;
+  text-align: left;
+  position: relative;
+
+  background-clip: padding-box;
+  border: solid var(--border-size) transparent;
+}
+
+
+
+.step-swtich-button-active .step-switch-title {
+  color: var(--color-text-secondary);
+  grid-row: 1 span;
+}
+.step-swtich-button-active .step-number,
+.step-swtich-button:hover .step-number {
+  /* background: linear-gradient(#0094FF, #0062E0); */
+  color: var(--color-text-white);
+  border: 0;
+}
+
+.step-swtich-button-active .step-number::before,
+.step-swtich-button:hover .step-number::before{
+  opacity: 1;
+}
+
+.step-swtich-button-active .step-switch-description  {
+  display: block;
+}
+
+
+.step-swtich-button-active::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  margin: calc(var(--border-size) * -1); /* !importanté */
+  border-radius: inherit; /* !importanté */
+  background: linear-gradient(to right, #0062E0, #0094FF);
+}
+
+.step-switch-title {
+font-family: League Spartan;
+font-size: calc(var(--text-size-4) * 6);;
+font-weight: 600;
+line-height: 0.91;
+color: var(--color-text-main);
+grid-row: 2 span;
+
+}
+.step-switch-description {
+  font-family: League Spartan;
+  font-size: calc(var(--text-size-4) * 4);
+  font-weight: 400;
+  line-height: 1.375;
+  text-align: left;
+  display: none;
+  
+}
+
+.image-wrapper {
+  height: 579px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  background-color: #F2F4FF;
+  position: absolute;
+  width: 100%;
+  top: 100%;
+  transition: top 300ms ease-in-out 
+}
+
+.image-wrapper-active {
+  top: 0%;
+}
